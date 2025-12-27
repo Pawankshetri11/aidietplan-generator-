@@ -1,0 +1,2 @@
+RewriteEngine On
+RewriteRule ^api/(.*)$ backend/$1 [L]
