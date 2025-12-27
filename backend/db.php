@@ -21,11 +21,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     exit();
 }
 
-$host = 'localhost';
-$db   = 'dietplan';
-$user = 'root';
-$pass = ''; // Default XAMPP password is empty
-$charset = 'utf8mb4';
+require_once 'config.php';
+
+$host = DB_HOST;
+$db   = DB_NAME;
+$user = DB_USER;
+$pass = DB_PASS;
+$charset = DB_CHARSET;
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [

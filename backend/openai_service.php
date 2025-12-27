@@ -1,8 +1,13 @@
 <?php
 // openai_service.php - Service to interact with OpenAI API
 
+require_once 'config.php';
+
+// Ensure key is loaded
 if (!defined('OPENAI_API_KEY')) {
-    define('OPENAI_API_KEY', 'Your Key');
+    // Fallback or Error
+    error_log("OPENAI_API_KEY not defined in config");
+    return ['error' => 'Server Configuration Error'];
 }
 
 function generateMealPlanAI($userProfile, $dayNumber, $pastMeals = [], $planType = 'starter') {
